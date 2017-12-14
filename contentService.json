@@ -1,0 +1,2824 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Content API",
+      "version": "v1"
+    },
+    "servers": [
+      {
+        "url": "https://content.test.hwapps.net/{version}",
+        "variables": {
+          "version": {
+            "default": "version"
+          }
+        }
+      }
+    ],
+    "paths": {
+      "/articles": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/articles?top=5",
+                        "next": "https://content.test.hwapps.net/articles?top=5&skip=5"
+                      },
+                      "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.items.json",
+                      "items": [
+                        {
+                          "id": "0003BDE0-1032-5C06-B40B-19938A19D6FC",
+                          "href": "https://content.test.hwapps.net/articles/0003BDE0-1032-5C06-B40B-19938A19D6FC",
+                          "languages": [
+                            "en-us",
+                            "es-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/articles/0003BDE0-1032-5C06-B40B-19938A19D6FC/en-us",
+                            "es-us": "https://content.test.hwapps.net/articles/0003BDE0-1032-5C06-B40B-19938A19D6FC/es-us"
+                          }
+                        },
+                        {
+                          "id": "000565FE-93A3-51B6-AE4D-7F9CD71AA7E3",
+                          "href": "https://content.test.hwapps.net/articles/000565FE-93A3-51B6-AE4D-7F9CD71AA7E3",
+                          "languages": [
+                            "en-us",
+                            "es-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/articles/000565FE-93A3-51B6-AE4D-7F9CD71AA7E3/en-us",
+                            "es-us": "https://content.test.hwapps.net/articles/000565FE-93A3-51B6-AE4D-7F9CD71AA7E3/es-us"
+                          }
+                        },
+                        {
+                          "id": "0008663B-F335-525C-AF5D-164E4352C064",
+                          "href": "https://content.test.hwapps.net/articles/0008663B-F335-525C-AF5D-164E4352C064",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/articles/0008663B-F335-525C-AF5D-164E4352C064/en-us"
+                          }
+                        },
+                        {
+                          "id": "00176100-3D41-5D5D-B75A-306DDE3DEFA8",
+                          "href": "https://content.test.hwapps.net/articles/00176100-3D41-5D5D-B75A-306DDE3DEFA8",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/articles/00176100-3D41-5D5D-B75A-306DDE3DEFA8/en-us"
+                          }
+                        },
+                        {
+                          "id": "001EB857-151A-51C9-8B11-4B0D3CB92501",
+                          "href": "https://content.test.hwapps.net/articles/001EB857-151A-51C9-8B11-4B0D3CB92501",
+                          "languages": [
+                            "en-us",
+                            "es-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/articles/001EB857-151A-51C9-8B11-4B0D3CB92501/en-us",
+                            "es-us": "https://content.test.hwapps.net/articles/001EB857-151A-51C9-8B11-4B0D3CB92501/es-us"
+                          }
+                        }
+                      ],
+                      "pagination": {
+                        "count": 18487,
+                        "top": 5,
+                        "skip": 0
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_articles",
+          "parameters": [
+            {
+              "name": "top",
+              "in": "query",
+              "description": "Specifies the maximum number of records to be returned from the service. In conjunction with *skip*, this is used for pagination of the results.  \nIf not specified, a default value will be used.  Max value is **5,000**.\n",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "skip",
+              "in": "query",
+              "description": "Specifies the index of the first record to be returned. In conjunction with *top*, this is used for pagination of the results.  \nIf not specified, a default value of **0** will be used.\n",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ]
+        }
+      },
+      "/articles/{id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/articles/te8175",
+                        "localizations": {
+                          "en-us": "https://content.test.hwapps.net/articles/te8175/en-us",
+                          "es-us": "https://content.test.hwapps.net/articles/te8175/es-us"
+                        },
+                        "metadata": {
+                          "en-us": "https://content.test.hwapps.net/metadata/te8175/en-us",
+                          "es-us": "https://content.test.hwapps.net/metadata/te8175/es-us"
+                        }
+                      },
+                      "data": {}
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid request- Malformed localization or version number or date format for asOf parameter. Also possible if passed both an asOf and content version parameters.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "The article doesn't exist (or didn't exist in the version specified) or client doesn't have access to this hwid.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Content was not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_articles-id",
+          "parameters": [
+            {
+              "name": "contentVersion",
+              "in": "query",
+              "description": "The healthwise content version. If not provided will default to the version on the configuration_id specified in the Oauth bearer token.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "asOf",
+              "in": "query",
+              "description": "Alternative to providing a content version by providing a date. The version returned is the version that was current at the date given. Must be in ISO-8601 format. Do not include the time.",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise id (hwid for legacy content; GUID for structured content)"
+          }
+        ]
+      },
+      "/articles/{id}/{lang}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/articles/te8175/en-us",
+                        "localizations": {
+                          "en-ca": "https://content.test.hwapps.net/articles/te8175/en-ca",
+                          "en-us": "https://content.test.hwapps.net/articles/te8175/en-us",
+                          "es-us": "https://content.test.hwapps.net/articles/te8175/es-us"
+                        },
+                        "metadata": {
+                          "en-ca": "https://content.test.hwapps.net/metadata/te8175/en-ca",
+                          "en-us": "https://content.test.hwapps.net/metadata/te8175/en-us",
+                          "es-us": "https://content.test.hwapps.net/metadata/te8175/es-us"
+                        }
+                      },
+                      "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.item.json",
+                      "data": {
+                        "id": "te8175",
+                        "version": "11.3",
+                        "hash": "-1294666887",
+                        "certifiedDate": "2016-07-26",
+                        "lang": "en-us",
+                        "docType": "aftervisit",
+                        "type": "aftervisit",
+                        "resources": {
+                          "css": [
+                            {
+                              "target": "https://assetpool.test.hwapps.net/11.3/common/desktop/alpine.api/inc/style/main.css"
+                            },
+                            {
+                              "target": "https://assetpool.test.hwapps.net/11.3/common/desktop/alpine.api/inc/style/main_ie8.css"
+                            },
+                            {
+                              "target": "https://assetpool.test.hwapps.net/11.3/common/desktop/alpine.api/inc/style/print.css",
+                              "media": "print"
+                            }
+                          ],
+                          "javascript": [
+                            {
+                              "target": "https://assetpool.test.hwapps.net/11.3/common/desktop/alpine.api/inc/control/healthwise.js"
+                            }
+                          ],
+                          "inline": "\n          if (!window.org) var org = { healthwise: {'application':{}} };\n          else if (!window.org.healthwise) org[\"healthwise\"] = {'application':{}};\n          org.healthwise.config = { \n              root: 'https://assetpool.test.hwapps.net/11.3/common/desktop/alpine.api/',\n              locale: 'en-us',\n              version: '11.3',\n              isoshg: false\n          \n          };\n      org.healthwise.document = {};\n        org.healthwise.document.id = \"te8175\";\n          org.healthwise.document.section = \"\";\n          org.healthwise.document.healthwise = true;\n          org.healthwise.document.title = \"Helping a Person With Alzheimer's Disease: Care Instructions\"; org.healthwise.document.family = \"pi\";\n          org.healthwise.document.doctype = \"AfterVisit\"; \n          org.healthwise.document.pagetype = \"content\"; \n          "
+                        },
+                        "title": {
+                          "consumer": "Helping a Person With Alzheimer's Disease: Care Instructions",
+                          "englishConsumer": "Helping a Person With Alzheimer's Disease: Care Instructions",
+                          "clinical": "Alzheimer's Disease: Care"
+                        },
+                        "abstract": {
+                          "consumer": "Alzheimer's disease is a type of dementia. It affects memory, intelligence, judgment, language, and behavior. It is not clear what causes this disease. But it is the most common form of dementia in older adults. It may take many years to develop. Alzheimer's disease is different than mild memory loss that occurs with...",
+                          "clinical": "Alzheimer's disease is a type of dementia. It affects memory, intelligence, judgment, language, and behavior. It is not clear what causes this disease. But it is the most common form of dementia in older adults. It may take many years to develop. Alzheimer's disease is different than mild memory loss that occurs with..."
+                        },
+                        "legal": {
+                          "logo": "<div class=\"HwLogo\"><a data-hwid=\"support-abouthw\" href=\"document/support-abouthw/support-abouthw-about\" data-document-type=\"Support\" data-document-href=\"support-abouthw\" data-section-href=\"support-abouthw-about\" data-articleId=\"support-abouthw\" data-topicId=\"support-abouthw-about\"><img width=\"112\" height=\"46\" class=\"HwNoHcMode\" alt=\"Click here to learn about Healthwise\" src=\"https://content.test.hwapps.net/resources/11.3/en-us/media/interface/hwlogo.png\" data-resource-path=\"media/interface/hwlogo.png\" /><img width=\"112\" height=\"46\" class=\"HwHcMode\" alt=\"Click here to learn about Healthwise\" src=\"https://content.test.hwapps.net/resources/11.3/en-us/media/interface/hwlogo_hc.png\" data-resource-path=\"media/interface/hwlogo_hc.png\" /></a></div>",
+                          "copyright": "<div class=\"HwCopyright\"><p>� 2006-2017 Healthwise, Incorporated. <span class=\"HwNoLogoNoText\">Healthwise, Healthwise for every health decision, and the Healthwise logo are trademarks of Healthwise, Incorporated.</span></p></div>",
+                          "disclaimer": "<div class=\"HwDisclaimer\"><p>Care instructions adapted under license by <span class=\"HwClientName\">Client Name</span>. This care instruction is for use with your licensed healthcare professional. If you have questions about a medical condition or this instruction, always ask your healthcare professional. Healthwise, Incorporated disclaims any warranty or liability for your use of this information.</p></div>",
+                          "termsOfUseUrl": "https://www.healthwise.org/specialpages/legal/terms.aspx",
+                          "privacyPolicyUrl": "https://www.healthwise.org/specialpages/legal/privacy.aspx",
+                          "moreInformationUrl": "https://www.healthwise.org",
+                          "toLearnMoreHtml": "To learn more about Healthwise, visit <a href=\"https://www.healthwise.org\">Healthwise.org</a>.",
+                          "yourUseOfThisInformationHtml": "Your use of this information means that you agree to the <a href=\"https://www.healthwise.org/specialpages/legal/terms.aspx\">Terms of Use</a> and <a href=\"https://www.healthwise.org/specialpages/legal/privacy.aspx\">Privacy Policy</a>."
+                        },
+                        "navigation": {
+                          "html": "<nav><div id=\"HwNavigationWrapper\" class=\"HwElement\"><div id=\"HwNavigation\" role=\"navigation\" class=\"HwNavigation\"><h3 id=\"HwNavStackHeader\" class=\"HwNavStackHeader\">Topic Contents</h3><ul aria-labelledby=\"HwNavStackHeader\"><li id=\"nav-te8176\"><a class=\"HwLinkNavstack\" data-hwid=\"te8175\" href=\"#te8176\" data-section-href=\"te8176\" data-topicId=\"te8176\" data-articleId=\"te8175\" data-document-type=\"AfterVisit\" data-document-href=\"te8175\">Your Care Instructions</a></li><li id=\"nav-te8177\"><a class=\"HwLinkNavstack\" data-hwid=\"te8175\" href=\"#te8177\" data-section-href=\"te8177\" data-topicId=\"te8177\" data-articleId=\"te8175\" data-document-type=\"AfterVisit\" data-document-href=\"te8175\">How can you care for your loved one at home?</a></li><li id=\"nav-te8178\"><a class=\"HwLinkNavstack\" data-hwid=\"te8175\" href=\"#te8178\" data-section-href=\"te8178\" data-topicId=\"te8178\" data-articleId=\"te8175\" data-document-type=\"AfterVisit\" data-document-href=\"te8175\">When should you call for help?</a></li><li id=\"nav-te8175-LearnMore\"><a class=\"HwLinkNavstack\" data-hwid=\"te8175\" href=\"#te8175-LearnMore\" data-section-href=\"te8175-LearnMore\" data-topicId=\"te8175-LearnMore\" data-articleId=\"te8175\" data-document-type=\"AfterVisit\" data-document-href=\"te8175\">Where can you learn more?</a></li></ul></div></div></nav>"
+                        },
+                        "credits": {
+                          "author": {
+                            "name": "Healthwise Staff "
+                          },
+                          "primaryReviewers": [
+                            {
+                              "name": "E. Gregory Thompson, MD - Internal Medicine",
+                              "profileId": "zx1834",
+                              "href": "https://content.test.hwapps.net/articles/zx1834/en-us?ContentVersion=11.3"
+                            },
+                            {
+                              "name": "Kathleen Romito, MD - Family Medicine",
+                              "profileId": "ts1221",
+                              "href": "https://content.test.hwapps.net/articles/ts1221/en-us?ContentVersion=11.3"
+                            }
+                          ],
+                          "secondaryReviewers": [
+                            {
+                              "name": "Myron F. Weiner, MD - Psychiatry, Neurology",
+                              "profileId": "ts1173",
+                              "href": "https://content.test.hwapps.net/articles/ts1173/en-us?ContentVersion=11.3"
+                            }
+                          ]
+                        },
+                        "pageTemplate": "<article><div role=\"main\" id=\"HwContentWrapper\" class=\"HwTypeAfterVisit HwContentWrapper HwElement\"><div class=\"HwCustom\" id=\"HwCustomContentTop\"></div><div class=\"HwContentHeader\"><p><a name=\"top\" id=\"Hwtop\"><span class=\"HwAccessibilityText\">Top of the page</span></a></p></div><div class=\"HwContentTitle\"><h1 id=\"HwContentTitle\">Helping a Person With Alzheimer's Disease: Care Instructions</h1><a class=\"HwMainSkipToNavigation\" id=\"HwMainSkipToNavigation\" href=\"javascript:void(0)\"><span class=\"HwAccessibilityText\">Skip to the navigation</span></a></div><div class=\"HwContent\" /><div class=\"HwCustom\" id=\"HwCustomContentBottom\"></div><div class=\"HwContentInformation\" /></div></article>",
+                        "topics": [
+                          {
+                            "id": "sec-te8176",
+                            "lang": "en-us",
+                            "type": "HwSectionSpecialSection",
+                            "title": {
+                              "consumer": "Your Care Instructions"
+                            },
+                            "navigable": true,
+                            "html": "<section><div class=\"HwNavigationSection HwSectionSpecialSection\" id=\"sec-te8176\"><a name=\"te8176\" data-articleId=\"\" data-topicId=\"\"> </a><h2 class=\"HwSectionTitle\" data-fingerprint=\"fa9777d3\" data-fingerprint-exact=\"9c9b7437\">Your Care Instructions</h2><p data-fingerprint=\"9044cba3\" data-fingerprint-exact=\"5d1df926\">Alzheimer's disease is a type of dementia. It affects memory, intelligence, judgment, language, and behavior. It is not clear what causes this disease. But it is the most common form of dementia in older adults. It may take many years to develop.</p><p data-fingerprint=\"05200693\" data-fingerprint-exact=\"cf69e73f\">Alzheimer's disease is different than mild memory loss that occurs with aging. </p><p data-fingerprint=\"34d220ae\" data-fingerprint-exact=\"146be320\">Family members usually notice symptoms first. But the person also may realize that something is wrong. </p><p data-fingerprint=\"825cddc8\" data-fingerprint-exact=\"20433ad1\"><b>Follow-up care is a key part of your loved one's treatment and safety.</b> Be sure to make and go to all appointments, and call your doctor if your loved one is having problems. It's also a good idea to know your loved one's test results and keep a list of the medicines he or she takes.</p></div></section>"
+                          },
+                          {
+                            "id": "sec-te8177",
+                            "lang": "en-us",
+                            "type": "HwSectionSpecialSection",
+                            "title": {
+                              "consumer": "How can you care for your loved one at home?"
+                            },
+                            "navigable": true,
+                            "html": "<section><div class=\"HwNavigationSection HwSectionSpecialSection\" id=\"sec-te8177\"><a name=\"te8177\" data-articleId=\"\" data-topicId=\"\"> </a><a class=\"HwSectionNameTag\" name=\"te8177\" id=\"anchor-te8177\" data-articleId=\"\" data-topicId=\"\"></a><h2 class=\"HwSectionTitle\" data-fingerprint=\"5063f58e\" data-fingerprint-exact=\"0937afef\">How can you care for your loved one at home?</h2><ul data-fingerprint=\"33287985\" data-fingerprint-exact=\"48f380df\"><li>Develop a routine. The person will feel less frustrated or confused with a clear, simple daily plan. Remind him or her about important facts and events.</li><li>Be patient. It may take longer for the person to complete a task than it used to. </li><li>Help the person eat a balanced diet. Serve plenty of whole grains, fruits, and vegetables every day. If the person is not eating well at mealtimes, give snacks at midmorning and in the afternoon. Offer drinks such as Boost, Ensure, or Sustacal if he or she is losing weight.</li><li>Encourage exercise. Walking and other activity may slow the decline of mental ability. Help the person keep an active mind. Encourage hobbies such as reading and crossword puzzles. </li><li>Take steps to help if the person is sundowning. This is the restless behavior and trouble with sleeping that may occur in late afternoon and at night. Try not to let the person nap during the day. Offer a glass of warm milk or caffeine-free tea before bedtime.</li><li>Ask family members and friends for help. You may need breaks where others can help care for the person.</li><li>Talk to the person's doctor about what resources are available for help in your area.</li><li>Review all of the person's medicines with his or her doctor.</li><li>For as long as the person is able, allow him or her to make decisions about activities, food, clothing, and other choices. Let the person be independent, even if tasks take more time or are not done perfectly. Tailor tasks to the person's abilities. For example, if cooking is no longer safe, ask for other help. He or she can help set the table or make simple dishes such as a salad. When the person needs help, offer it gently.</li></ul><h3 class=\"HwSubSectionTitle\" data-fingerprint=\"ef58a996\" data-fingerprint-exact=\"ac3a010d\">Keeping safe</h3><ul data-fingerprint=\"4906e9fb\" data-fingerprint-exact=\"cfe613bf\"><li>Make your home (or the person's home) safe. Tack down rugs, and put no-slip tape in the tub. Install handrails, and put safety switches on stoves and appliances. Keep rooms free of clutter. Make sure walkways around furniture are clear. Do not move furniture around, because the person may become confused.</li><li> Use locks on doors and cupboards. Lock up knives, scissors, medicines, cleaning supplies, and other dangerous things. </li><li>Do not let the person drive or cook if he or she cannot do it safely. A person with Alzheimer's should not drive unless he or she is able to pass an on-road driving test. Your state driver's license bureau can do a driving test if there is any question. </li><li>Get medical alert jewelry for the person so you can be contacted if he or she wanders away. If possible, provide a safe place for wandering, such as an enclosed yard or garden.</li></ul></div></section>"
+                          },
+                          {
+                            "id": "sec-te8178",
+                            "lang": "en-us",
+                            "type": "HwSectionSpecialSection",
+                            "title": {
+                              "consumer": "When should you call for help?"
+                            },
+                            "navigable": true,
+                            "html": "<section><div class=\"HwNavigationSection HwSectionSpecialSection\" id=\"sec-te8178\"><a name=\"te8178\" data-articleId=\"\" data-topicId=\"\"> </a><a class=\"HwSectionNameTag\" name=\"te8178\" id=\"anchor-te8178\" data-articleId=\"\" data-topicId=\"\"></a><h2 class=\"HwSectionTitle\" data-fingerprint=\"c088b98d\" data-fingerprint-exact=\"66f74ef0\">When should you call for help?</h2><p data-fingerprint=\"53804644\" data-fingerprint-exact=\"4686f2fd\"><b>Call 911</b> anytime you think you may need emergency care. For example, call if:</p><ul data-fingerprint=\"43f415f4\" data-fingerprint-exact=\"49821f23\"><li>A person who has Alzheimer's disease has disappeared.</li><li>A person who has Alzheimer's disease is seriously injured.</li></ul><p data-fingerprint=\"7e65facd\" data-fingerprint-exact=\"2e63c2b2\"><b>Call your doctor now</b> or seek immediate medical care if:</p><ul data-fingerprint=\"48fb7194\" data-fingerprint-exact=\"feb87142\"><li>The person you are caring for suddenly sees or hears things that are not there (hallucinates).</li><li> The person you are caring for has a sudden, drastic change in his or her behavior.</li></ul><p data-fingerprint=\"d695d8fd\" data-fingerprint-exact=\"f1f4864e\">Watch closely for changes in your loved one's health, and be sure to contact the doctor if:</p><ul data-fingerprint=\"c51bbad1\" data-fingerprint-exact=\"853df266\"><li>A person who has Alzheimer's disease gradually gets worse or has symptoms that could cause injury.</li><li> You need help caring for a person with Alzheimer's disease.</li><li>The person has problems with his or her medicine.</li></ul></div></section>"
+                          },
+                          {
+                            "id": "sec-te8175-LearnMore",
+                            "lang": "en-us",
+                            "type": "HwGoToWeb HwSectionLearnMore",
+                            "title": {
+                              "consumer": "Where can you learn more?"
+                            },
+                            "navigable": true,
+                            "html": "<section><div class=\"HwNavigationSection HwGoToWeb HwSectionLearnMore\" id=\"sec-te8175-LearnMore\"><a name=\"te8175-LearnMore\" data-articleId=\"\" data-topicId=\"\"> </a><a class=\"HwSectionNameTag\" name=\"te8175-LearnMore\" id=\"anchor-te8175-LearnMore\" data-articleId=\"\" data-topicId=\"\"></a><h2 class=\"HwSectionTitle\" data-fingerprint=\"64a028c2\" data-fingerprint-exact=\"9bc13f55\">Where can you learn more?</h2><p class=\"HwGoToWebText1\">Go to <a href=\"https://www.healthwise.net/patientEd\" class=\"HwGoToWebURL\" data-articleId=\"\" data-topicId=\"\">https://www.healthwise.net/patientEd</a></p><p class=\"HwGoToWebText2\">Enter <span class=\"HwGoToWebCode\">G646</span> in the search box to learn more about <b>\"Helping a Person With Alzheimer's Disease: Care Instructions.\"</b></p></div></section>"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid request- Malformed localization or version number or date format for asOf parameter. Also possible if passed both an asOf and content version parameters.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "The article doesn't exist (or didn't exist in the version specified) or client doesn't have access to this hwid.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Content was not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_articles-id-lang",
+          "parameters": [
+            {
+              "name": "contentVersion",
+              "in": "query",
+              "description": "The healthwise content version. If not provided will default to the version on the content configuration_id specified in the Oauth bearer token.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "asOf",
+              "in": "query",
+              "description": "Alternative to providing a content version by providing a date. The version returned is the version that was current at the date given. Must be in ISO-8601 format. Do not include the time.",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise id (hwid for legacy content; GUID for structured content)"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Localization"
+          }
+        ]
+      },
+      "/metadata/{id}/{lang}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "links": {
+                        "self": "https://content.test.hwapps.net/metadata/cpain/en-us"
+                      },
+                      "data": {
+                        "routeName": "GetMetadata",
+                        "id": "cpain",
+                        "lang": "en-us",
+                        "release_date": "2015-07-16",
+                        "languages": [
+                          "en-us"
+                        ],
+                        "title": {
+                          "consumer": "Chronic Pain"
+                        },
+                        "abstract": {
+                          "consumer": "Discusses chronic pain caused by problems other than cancer. Covers symptoms and how chronic pain is diagnosed. Covers conditions that can be treated, like neck pain, low back pain, and arthritis. Info on treatment with medicine and lifestyle changes.",
+                          "clinical": "Discusses chronic pain caused by problems other than cancer. Covers symptoms and how chronic pain is diagnosed. Covers conditions that can be treated, like neck pain, low back pain, and arthritis. Info on treatment with medicine and lifestyle changes."
+                        },
+                        "min_age": "19",
+                        "max_age": "110",
+                        "emr_min_age": "19",
+                        "emr_max_age": "110",
+                        "age": [
+                          "D055815",
+                          "D000328",
+                          "D008875",
+                          "D000368",
+                          "D000369"
+                        ],
+                        "gender": [
+                          "male",
+                          "female"
+                        ],
+                        "categories": [
+                          "cat1002",
+                          "cat1004",
+                          "cat1005",
+                          "cat1031"
+                        ],
+                        "snomedct_r1": [
+                          "82423001"
+                        ],
+                        "icd9_r1": [
+                          "338.2",
+                          "338.21",
+                          "338.29"
+                        ],
+                        "icd9_r2": [
+                          "338.22",
+                          "338.28"
+                        ],
+                        "icd10_r1": [
+                          "G89.2",
+                          "G89.21",
+                          "G89.22",
+                          "G89.28",
+                          "G89.29"
+                        ],
+                        "keywords_r1_en": [
+                          "Chronic pain",
+                          "Chronic pain (finding)",
+                          "Chronic Pains",
+                          "Pain, Chronic",
+                          "Pains, Chronic"
+                        ],
+                        "keywords_r1_es": [
+                          "Chronic pain",
+                          "Chronic pain (finding)",
+                          "Chronic Pains",
+                          "Pain, Chronic",
+                          "Pains, Chronic",
+                          "dolor cr�nico",
+                          "dolor cr�nico (hallazgo)"
+                        ],
+                        "keywords_r1_fr": [
+                          "Chronic pain",
+                          "Chronic pain (finding)",
+                          "Chronic Pains",
+                          "Pain, Chronic",
+                          "Pains, Chronic",
+                          "douleur chronique",
+                          "douleur chronique (constat)",
+                          "douleurs chroniques",
+                          "Douleur chronique"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Invalid request- Malformed localization or version number or date format for asOf parameter. Also possible if passed both an asOf and content version parameters.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "The article doesn't exist (or didn't exist in the version specified) or client doesn't have access to this hwid.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "not found",
+                      "error_description": "Content was not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_metadata-id-lang"
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise id"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Localization"
+          }
+        ]
+      },
+      "/topics": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/topics?top=5",
+                        "next": "https://content.test.hwapps.net/topics?top=5&skip=5"
+                      },
+                      "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.items.json",
+                      "items": [
+                        {
+                          "id": "0000D36E-AD09-4937-B445-57971E7DFBBC",
+                          "href": "https://content.test.hwapps.net/topics/0000D36E-AD09-4937-B445-57971E7DFBBC",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/0000D36E-AD09-4937-B445-57971E7DFBBC/en-us"
+                          },
+                          "type": "hwAction",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "howDone",
+                                "label": "How it's done",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_04700/howDone"
+                              },
+                              "concept": {
+                                "id": "HWCV_04700",
+                                "label": "Quitting Smoking",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_04700"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "0005B3EC-6724-408C-A800-84B88E13C304",
+                          "href": "https://content.test.hwapps.net/topics/0005B3EC-6724-408C-A800-84B88E13C304",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/0005B3EC-6724-408C-A800-84B88E13C304/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "whatCauses",
+                                "label": "What causes it",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20747/whatCauses"
+                              },
+                              "concept": {
+                                "id": "HWCV_20747",
+                                "label": "Thyroid Cancer",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20747"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "0005FFE2-EF68-4896-80E4-29BD436C084C",
+                          "href": "https://content.test.hwapps.net/topics/0005FFE2-EF68-4896-80E4-29BD436C084C",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/0005FFE2-EF68-4896-80E4-29BD436C084C/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "Summary",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "signsAndSymptoms",
+                                "label": "Signs and symptoms",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20466/signsAndSymptoms"
+                              },
+                              "concept": {
+                                "id": "HWCV_20466",
+                                "label": "Kneecap Dislocation",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20466"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "0007064D-9ED9-5D44-8650-D7B522CFB80B",
+                          "href": "https://content.test.hwapps.net/topics/0007064D-9ED9-5D44-8650-D7B522CFB80B",
+                          "languages": [
+                            "es-us",
+                            "en-ca",
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "es-us": "https://content.test.hwapps.net/topics/0007064D-9ED9-5D44-8650-D7B522CFB80B/es-us",
+                            "en-ca": "https://content.test.hwapps.net/topics/0007064D-9ED9-5D44-8650-D7B522CFB80B/en-ca",
+                            "en-us": "https://content.test.hwapps.net/topics/0007064D-9ED9-5D44-8650-D7B522CFB80B/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "FullDetail",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "selfCareTx",
+                                "label": "Self-care treatment",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20690/selfCareTx"
+                              },
+                              "concept": {
+                                "id": "HWCV_20690",
+                                "label": "Paraphimosis",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20690"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "00073844-37EC-4933-A941-9644B82B3E2E",
+                          "href": "https://content.test.hwapps.net/topics/00073844-37EC-4933-A941-9644B82B3E2E",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/00073844-37EC-4933-A941-9644B82B3E2E/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "signsAndSymptoms",
+                                "label": "Signs and symptoms",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_21290/signsAndSymptoms"
+                              },
+                              "concept": {
+                                "id": "HWCV_21290",
+                                "label": "Chronic Pain",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_21290"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "pagination": {
+                        "count": 27483,
+                        "top": 5,
+                        "skip": 0
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Can't connect to data source",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "internal server error",
+                      "error_description": "No datasource for request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_topics",
+          "parameters": [
+            {
+              "name": "type",
+              "in": "query",
+              "description": "Specifies to filter the topics manifest to topics with a matching *type*.  \nAn empty value specifies no filtering on *type*.\n",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "top",
+              "in": "query",
+              "description": "Specifies the maximum number of records to be returned from the service. In conjunction with *skip*, this is used for pagination of the results.  \nIf not specified, a default value will be used.  Max value is **5,000**.\n",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "skip",
+              "in": "query",
+              "description": "Specifies the index of the first record to be returned. In conjunction with *top*, this is used for pagination of the results.  \nIf not specified, a default value of **0** will be used.\n",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ]
+        }
+      },
+      "/topics/{id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/topics/02DAC5DE-D212-5563-9831-F0886A434367",
+                        "localizations": {
+                          "en-us": "https://content.test.hwapps.net/topics/02DAC5DE-D212-5563-9831-F0886A434367/en-us",
+                          "es-us": "https://content.test.hwapps.net/topics/02DAC5DE-D212-5563-9831-F0886A434367/es-us"
+                        },
+                        "metadata": {
+                          "en-us": "https://content.test.hwapps.net/metadata/02DAC5DE-D212-5563-9831-F0886A434367/en-us",
+                          "es-us": "https://content.test.hwapps.net/metadata/02DAC5DE-D212-5563-9831-F0886A434367/es-us"
+                        }
+                      },
+                      "data": {}
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "The article doesn't exist (or didn't exist in the version specified) or client doesn't have access to this hwid.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "not found",
+                      "error_description": "Document {id} not found"
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Can't connect to data source",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "internal server error",
+                      "error_description": "No datasource for request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_topics-id"
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "id of topic"
+          }
+        ]
+      },
+      "/topics/{id}/{lang}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "example": {
+                        "status": 200,
+                        "versioning": {
+                          "X-HW-Version": "1"
+                        },
+                        "links": {
+                          "self": "https://content.test.hwapps.net/topics/02DAC5DE-D212-5563-9831-F0886A434367/en-us/",
+                          "localizations": {},
+                          "metadata": {
+                            "en-us": "https://content.test.hwapps.net/metadata/02DAC5DE-D212-5563-9831-F0886A434367/en-us"
+                          }
+                        },
+                        "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.item.json",
+                        "data": {
+                          "topics": [
+                            {
+                              "id": "02DAC5DE-D212-5563-9831-F0886A434367",
+                              "version": "1",
+                              "hash": "1",
+                              "lang": "en-us",
+                              "type": "hwInfoConcept",
+                              "title": {
+                                "consumer": "How is a Mammogram done?"
+                              },
+                              "legal": {
+                                "logoText": "https://assetpool.test.hwapps.net/11.2/common/images/hwlogo/hwlogo.png",
+                                "copyrightText": "� 1995-2017 Healthwise, Incorporated. Healthwise, Healthwise for every health decision, and the Healthwise logo are trademarks of Healthwise, Incorporated.",
+                                "disclaimerText": "This information does not replace the advice of a doctor. Healthwise, Incorporated disclaims any warranty or liability for your use of this information.",
+                                "termsOfUse": "https://www.healthwise.org/specialpages/legal/terms.aspx",
+                                "privacyPolicy": "https://www.healthwise.org/specialpages/legal/privacy.aspx",
+                                "moreInformation": "https://www.healthwise.org",
+                                "html": "<div class=\"HwLegal\"><div class=\"HwLogo\"><img width=\"112\" height=\"46\" src=\"https://assetpool.test.hwapps.net/11.2/common/images/hwlogo/hwlogo.png\" alt=\"\"/></div><div class=\"HwDisclaimer\"><p>This information does not replace the advice of a doctor. Healthwise, Incorporated disclaims any warranty or liability for your use of this information.</p></div><div class=\"HwCopyright\"><p class=\"HwCopyrightLink\">To learn more about Healthwise, visit <a href=\"https://www.healthwise.org\"Healthwise.org</a></p><p>� 1995-2016 Healthwise, Incorporated. Healthwise, Healthwise for every health decision, and the Healthwise logo are trademarks of Healthwise, Incorporated.</p></div></div>"
+                              },
+                              "navigable": false,
+                              "html": "<div class=\"HwStructuredWrapper\"><div class=\"HwStructuredContent hwInfoConcept\"><h3>How is a Mammogram done?</h3><p id=\"HwSCSection\"><p>A mammogram is done by a radiology technologist or mammogram technologist. The X-ray pictures (mammograms) are interpreted by a doctor who specializes in evaluating X-rays (radiologist).</p><p>You will need to remove any jewelry that might interfere with the X-ray picture. You will need to take off your clothes above the waist, and you will be given a cloth or paper gown to use during the test. If you are concerned about an area of your breast, show the technologist so that the area can be noted.</p><p>You usually stand during a mammogram. One at a time, your breasts will be placed on a flat plate. Another plate is then pressed firmly against your breast to help flatten out the breast tissue. Very firm compression is needed to obtain high-quality pictures. You may be asked to lift your arm. For a few seconds while the X-ray picture is being taken, you will need to hold your breath. Usually at least two pictures are taken of each breast: one from the top and one from the side.</p><p>You may be in the mammogram clinic for up to an hour. The mammogram itself takes about 10 to 15 minutes. You will be asked to wait (usually about 5 minutes) until the X-rays are developed, in case repeat pictures need to be taken. In some clinics and hospitals, X-ray pictures can be viewed immediately on a computer screen (digitally).</p></p></div></div>",
+                              "aspect": "howDone",
+                              "detailLevel": "summary"
+                            }
+                          ]
+                        }
+                      },
+                      "video": {
+                        "status": 200,
+                        "versioning": {
+                          "X-HW-Version": "1"
+                        },
+                        "links": {
+                          "self": "https://content.test.hwapps.net/topics/5672D7A5-A7BD-539E-A995-303CF578938A/en-us",
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/5672D7A5-A7BD-539E-A995-303CF578938A/en-us"
+                          },
+                          "metadata": {
+                            "en-us": "https://content.test.hwapps.net/metadata/5672D7A5-A7BD-539E-A995-303CF578938A/en-us"
+                          }
+                        },
+                        "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.item.json",
+                        "data": {
+                          "topics": [
+                            {
+                              "id": "5672D7A5-A7BD-539E-A995-303CF578938A",
+                              "version": "1",
+                              "certifiedDate": "2016-11-21",
+                              "lang": "en-us",
+                              "type": "hwVideo",
+                              "title": {
+                                "consumer": "Prescription medicine misuse: support for recovery"
+                              },
+                              "abstract": {
+                                "consumer": "Learn about the importance of finding support for recovery.",
+                                "clinical": "Emphasizes the importance of social support in successful recovery."
+                              },
+                              "legal": {
+                                "logoUrl": "https://assetpool.test.hwapps.net/11.1/common/images/hwlogo/hwlogo.png",
+                                "copyrightText": "� 1995-2017 Healthwise, Incorporated. Healthwise, Healthwise for every health decision, and the Healthwise logo are trademarks of Healthwise, Incorporated.",
+                                "disclaimerText": "This information does not replace the advice of a doctor. Healthwise, Incorporated, disclaims any warranty or liability for your use of this information.",
+                                "termsOfUseUrl": "https://www.healthwise.org/specialpages/legal/terms.aspx",
+                                "privacyPolicyUrl": "https://www.healthwise.org/specialpages/legal/privacy.aspx",
+                                "moreInformationUrl": "https://www.healthwise.org",
+                                "toLearnMoreHtml": "To learn more about Healthwise, visit <a href=\"https://www.healthwise.org\">Healthwise.org</a>.",
+                                "yourUseOfThisInformationHtml": "Your use of this information means that you agree to the <a href=\"https://www.healthwise.org/specialpages/legal/terms.aspx\">Terms of Use</a> and <a href=\"https://www.healthwise.org/specialpages/legal/privacy.aspx\">Privacy Policy</a>.",
+                                "html": "<div class=\"HwLegal\"><div class=\"HwLogo\"><img width=\"112\" height=\"46\" src=\"https://assetpool.test.hwapps.net/11.1/common/images/hwlogo/hwlogo.png\" alt=\"\"/></div><div class=\"HwDisclaimer\"><p>This information does not replace the advice of a doctor. Healthwise, Incorporated, disclaims any warranty or liability for your use of this information. Your use of this information means that you agree to the <a href=\"https://www.healthwise.org/specialpages/legal/terms.aspx\">Terms of Use</a> and <a href=\"https://www.healthwise.org/specialpages/legal/privacy.aspx\">Privacy Policy</a>.</p></div><div class=\"HwCopyright\"><p class=\"HwCopyrightLink\">To learn more about Healthwise, visit <a href=\"https://www.healthwise.org\">Healthwise.org</a>.</p><p>� 1995-2016 Healthwise, Incorporated. Healthwise, Healthwise for every health decision, and the Healthwise logo are trademarks of Healthwise, Incorporated.</p></div></div>"
+                              },
+                              "navigable": false,
+                              "credits": {
+                                "author": {
+                                  "name": "Healthwise Staff"
+                                },
+                                "primaryReviewers": [
+                                  {
+                                    "name": "Adam Husney MD - Family Medicine"
+                                  }
+                                ],
+                                "secondaryReviewers": [
+                                  {
+                                    "name": "Timothy R. Stockwell PhD"
+                                  }
+                                ]
+                              },
+                              "html": "<div class=\"HwStructuredWrapper\"><div class=\"HwStructuredContent HwMedia\"><h3 data-element=\"title\">Prescription medicine misuse: support for recovery</h3><div class=\"HwVideo\"><video controls=\"true\" preload=\"true\" class=\"HwVideoTag\" crossorigin=\"anonymous\" poster=\"https://assetpool.test.hwapps.net/11.1/en-us/desktop/abq3846/SD/abq3846.jpg\"><source src=\"https://d20bb9v528piij.cloudfront.net/11.1/en-us/abq3846/SD/hls/EF0/filesequence.m3u8?Expires=1481065311&amp;Signature=erFW1PAJOt4dolw5-NXEP4PEBuxiSAu38YmXlCZYyycujuG9hPmDKDJp2Sh6y7Nt4q51SOj06R62tQh1PJQVz16ear44e-bhlmm8omi7fJdni0BZ1swEzMrsnNhwZ-9YDui9LEyenpxJah~Ms~rse02BXArBrZm7Tig2RcYEeFw_&amp;Key-Pair-Id=APKAIDLZDAU235UUEL6A\" /><source src=\"https://d20bb9v528piij.cloudfront.net/11.1/en-us/abq3846/SD/E0/abq3846.mp4?Expires=1481065311&amp;Signature=GTrc8A~7W8IC29D2yfpfra-6m0upKuObw06iFmn~1QRXtsi3cbhYF9IFb5F0~woZHt8hjuXpXdTVeovIE0MJc8uObMlx7um~7SIK7llDaxuVgOmJnAHDUxopE3ebQ~kyXgTBGGowCzkxfVPJrWC3a7~KcnpPlxl4S9Bfcq-83Dg_&amp;Key-Pair-Id=APKAIDLZDAU235UUEL6A\" /><track label=\"English\" kind=\"captions\" srclang=\"English\" src=\"https://assetpool.test.hwapps.net/11.1/en-us/desktop/abq3846/abq3846.vtt\" /></video></div></div></div>",
+                              "aspect": "Getting support [gettingSupport]",
+                              "thumbnail": "https://assetpool.test.hwapps.net/11.1/en-us/desktop/abq3846/SD/abq3846.jpg",
+                              "transcript": {
+                                "html": "<p>[Host] You'll meet many people on the road to recovery and to reach your goal, you'll want to spend time with those who help you head toward a drug-free life.</p><p>Support groups are one of the best places to find them because the people you'll meet there are on the same journey as you are.</p><p>[Misty] \"Walking into my first NA meeting I was pretty nervous. I mean, I used prescription drugs.</p><p>I wasn't sure I belonged there.</p><p>I purposely got there a little late so I wouldn't have to talk to anybody.</p><p>I just stood in the back and listened.</p><p>One guy talked about what his life was like when he used cocaine.</p><p>Lying stealing money to buy drugs feeling helpless to stop.</p><p>And everybody was rooting for him because he did stop.</p><p>It was a different drug, but exactly the same kinds of things I felt guilty about.</p><p>I left early that time, but the next day I stayed for the whole thing.</p><p>I kept going back and pretty soon I got a sponsor.</p><p>As great as my family and friends are, they don't know what it's like to lose control of your life.</p><p>At the meetings, I found people who know where I've been and who help me to keep moving forward.\"</p><p>[Jett] \"I was a wreck when I was using opiates.</p><p>I ruined a lot of good things and I lost a lot.</p><p>Not just my job but my marriage my kids and my self-respect.</p><p>I can't blame my family for pulling away from me.</p><p>Finding my group well, I found people who weren't fed up with me who know what it's like to mess up and have regrets.</p><p>A couple of the guys are veterans, like me.</p><p>That's made our bond even tighter.</p><p>The brothers have seen it all and heard it all.</p><p>They keep me honest.</p><p>But it goes both ways.</p><p>And it feels good to know that I help them as much as they help me.</p><p>I don't call 'em 'brothers' for nothing.</p><p>They're my second family.\"</p><p>[Serrina] \"I work in health care I was scared I'd lose my job if someone found out about my problem.</p><p>An online support group felt safe to me.</p><p>You might not think you'd really connect with people that way, but I've gotten very close with three women I met online.</p><p>We come from different worlds, but we are so much the same in how we feel and how we ended up with a problem.</p><p>For a long time, I lived a secret life.</p><p>I felt cut off from everyone because I had to hide my problem.</p><p>Being able to speak the truth knowing that I'm not alone that there are people ready to help anytime things get rough that's meant the world to me.\"</p><p>[Host] Support groups can offer understanding and acceptance and for many people, that's key in helping them stay in recovery.</p><p>You don't have to make this journey alone.</p><p>There are people who want to help and people you can help too.</p><p>And it all starts with attending a meeting.</p><p>When will you be ready to start?</p>"
+                              },
+                              "sources": {
+                                "mp4_1080p_url": "https://d20bb9v528piij.cloudfront.net/11.1/en-us/abq3846/SD/E3/abq3846.mp4?Expires=1481065311&Signature=FpGBCqtRaKiLtE~fX8SMb6coZ6odEo2KT7rviF4vq0nXbNVBdabxUGMBuRk0UZjnleKySM6QunE2ml28Irky5AMoU4HQQhW1WEo2hZKhyzH00f5RwpdPr34qR864pk3XV0APjqsAVGTBM5aiFoLTY8Sli~irthsvVBVHFxpu90M_&Key-Pair-Id=APKAIDLZDAU235UUEL6A",
+                                "mp4_720p_url": "https://d20bb9v528piij.cloudfront.net/11.1/en-us/abq3846/SD/E4/abq3846.mp4?Expires=1481065311&Signature=ESR8XYJOahHrLBmRkJegi46WGjDXL5iUi~SPAvG6oM1T9-nBP2RJoGWVw-jTiWK7-pXqFb9ihN4tusDsmYcBcIvFv--ZQD0znVZgXaEUh1zidDLclZ6jMXmpVFqSBH91QlwYUU95uL38byDvz0EW8mETc4Vic84Npn4GPnfcfTg_&Key-Pair-Id=APKAIDLZDAU235UUEL6A",
+                                "mp4_288p_url": "https://d20bb9v528piij.cloudfront.net/11.1/en-us/abq3846/SD/E0/abq3846.mp4?Expires=1481065311&Signature=GTrc8A~7W8IC29D2yfpfra-6m0upKuObw06iFmn~1QRXtsi3cbhYF9IFb5F0~woZHt8hjuXpXdTVeovIE0MJc8uObMlx7um~7SIK7llDaxuVgOmJnAHDUxopE3ebQ~kyXgTBGGowCzkxfVPJrWC3a7~KcnpPlxl4S9Bfcq-83Dg_&Key-Pair-Id=APKAIDLZDAU235UUEL6A",
+                                "hls_600k_url": "https://d20bb9v528piij.cloudfront.net/11.1/en-us/abq3846/SD/hls/EF1/filesequence.m3u8?Expires=1481065311&Signature=KshlBySXCCOOS7ba3dZ61q07QIGM~m3hpzfcSB58XqiX9cC7avPThtZKoWmA55uWBDWSmKfVSDVM7mGLVeU9LWTu-f2LF~CQ7a7xa1DwR3mkEMWA0uVXPG3hHtT39i-fq-tujmmw-S6mYqsQbMZ40g6WY-XiIcHmkWwHcmAKn4I_&Key-Pair-Id=APKAIDLZDAU235UUEL6A",
+                                "hls_400k_url": "https://d20bb9v528piij.cloudfront.net/11.1/en-us/abq3846/SD/hls/EF0/filesequence.m3u8?Expires=1481065311&Signature=erFW1PAJOt4dolw5-NXEP4PEBuxiSAu38YmXlCZYyycujuG9hPmDKDJp2Sh6y7Nt4q51SOj06R62tQh1PJQVz16ear44e-bhlmm8omi7fJdni0BZ1swEzMrsnNhwZ-9YDui9LEyenpxJah~Ms~rse02BXArBrZm7Tig2RcYEeFw_&Key-Pair-Id=APKAIDLZDAU235UUEL6A"
+                              },
+                              "closedCaptions": {
+                                "sbv_url": "https://assetpool.test.hwapps.net/11.1/en-us/desktop/abq3846/abq3846.sbv",
+                                "srt_url": "https://assetpool.test.hwapps.net/11.1/en-us/desktop/abq3846/abq3846.srt",
+                                "vtt_url": "https://assetpool.test.hwapps.net/11.1/en-us/desktop/abq3846/abq3846.vtt",
+                                "xml_url": "https://assetpool.test.hwapps.net/11.1/en-us/desktop/abq3846/abq3846.xml"
+                              },
+                              "learningObjectiveText": {
+                                "html": "<p>The user will learn about the importance of social support in recovery.</p>"
+                              },
+                              "clinicalAbstract": {
+                                "html": "<p>Emphasizes the importance of social support in successful recovery.</p>"
+                              },
+                              "teaser": {
+                                "html": "<p>Learn about the importance of finding support for recovery.</p>"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden. No access to requested content.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "The topic doesn't exist.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "not found",
+                      "error_description": "Document {id} not found"
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Can't connect to data source",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "internal server error",
+                      "error_description": "No datasource for request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_topics-id-lang"
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise id"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Localization"
+          }
+        ]
+      },
+      "/topics/{concept}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                      },
+                      "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.items.json",
+                      "items": [
+                        {
+                          "id": "E5EADAC4-4890-4BA1-82B7-05E4AB0D9FB0",
+                          "href": "https://content.test.hwapps.net/topics/E5EADAC4-4890-4BA1-82B7-05E4AB0D9FB0",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/E5EADAC4-4890-4BA1-82B7-05E4AB0D9FB0/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "FullDetail",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "complicationsAndComorbidities",
+                                "label": "Complications and comorbidities",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/complicationsAndComorbidities?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "8B1AC117-5ECE-55E9-95BC-4763AE2995E5",
+                          "href": "https://content.test.hwapps.net/topics/8B1AC117-5ECE-55E9-95BC-4763AE2995E5",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/8B1AC117-5ECE-55E9-95BC-4763AE2995E5/en-us"
+                          },
+                          "type": "hwVideo",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "physiology",
+                                "label": "Physiology",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/physiology?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "40BE6BAE-4775-5009-900B-F71F9A74711C",
+                          "href": "https://content.test.hwapps.net/topics/40BE6BAE-4775-5009-900B-F71F9A74711C",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/40BE6BAE-4775-5009-900B-F71F9A74711C/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "FullDetail",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "recovery",
+                                "label": "Recovery",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/recovery?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "AB24939C-E7DA-5BE7-A6AE-57A2E857FE2A",
+                          "href": "https://content.test.hwapps.net/topics/AB24939C-E7DA-5BE7-A6AE-57A2E857FE2A",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/AB24939C-E7DA-5BE7-A6AE-57A2E857FE2A/en-us"
+                          },
+                          "type": "hwVideo",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "socialAndEmotional",
+                                "label": "Social and emotional aspects",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/socialAndEmotional?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "6FD79F14-1E24-4E56-8F3D-60F6A7952E8B",
+                          "href": "https://content.test.hwapps.net/topics/6FD79F14-1E24-4E56-8F3D-60F6A7952E8B",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/6FD79F14-1E24-4E56-8F3D-60F6A7952E8B/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "FullDetail",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "specificTypes",
+                                "label": "Specific types or variations",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/specificTypes?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "1F7BF386-9686-5F6E-9876-B7811787B715",
+                          "href": "https://content.test.hwapps.net/topics/1F7BF386-9686-5F6E-9876-B7811787B715",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/1F7BF386-9686-5F6E-9876-B7811787B715/en-us"
+                          },
+                          "type": "hwVideo",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "story",
+                                "label": "Story",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/story?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "91B60F4C-7A71-4778-9AE3-54D3DCD13C9D",
+                          "href": "https://content.test.hwapps.net/topics/91B60F4C-7A71-4778-9AE3-54D3DCD13C9D",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/91B60F4C-7A71-4778-9AE3-54D3DCD13C9D/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "whatCauses",
+                                "label": "What causes it",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/whatCauses?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "A6A2C793-75D4-49CF-BEE7-B6B4057F2658",
+                          "href": "https://content.test.hwapps.net/topics/A6A2C793-75D4-49CF-BEE7-B6B4057F2658",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/A6A2C793-75D4-49CF-BEE7-B6B4057F2658/en-us"
+                          },
+                          "type": "hwWhenToCall",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "whenToCall",
+                                "label": "When to call",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/whenToCall?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "26030172-5BD2-4057-A765-08D864C62C4E",
+                          "href": "https://content.test.hwapps.net/topics/26030172-5BD2-4057-A765-08D864C62C4E",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/26030172-5BD2-4057-A765-08D864C62C4E/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "management",
+                                "label": "Management",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/management?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "29443ECE-ED98-4100-8620-8DA343725E21",
+                          "href": "https://content.test.hwapps.net/topics/29443ECE-ED98-4100-8620-8DA343725E21",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/29443ECE-ED98-4100-8620-8DA343725E21/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "triggers",
+                                "label": "Triggers",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/triggers?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "29851D38-DEB6-4484-A09C-FA82EE152DE3",
+                          "href": "https://content.test.hwapps.net/topics/29851D38-DEB6-4484-A09C-FA82EE152DE3",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/29851D38-DEB6-4484-A09C-FA82EE152DE3/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "selfCareTxOptions",
+                                "label": "Self-care treatment options",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/selfCareTxOptions?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "2BF5ED31-2021-49E8-8EA5-937E9621D388",
+                          "href": "https://content.test.hwapps.net/topics/2BF5ED31-2021-49E8-8EA5-937E9621D388",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/2BF5ED31-2021-49E8-8EA5-937E9621D388/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "signsAndSymptoms",
+                                "label": "Signs and symptoms",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/signsAndSymptoms?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "44C2C3B9-7364-4BBB-93AC-E45A90062B82",
+                          "href": "https://content.test.hwapps.net/topics/44C2C3B9-7364-4BBB-93AC-E45A90062B82",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/44C2C3B9-7364-4BBB-93AC-E45A90062B82/en-us"
+                          },
+                          "type": "hwAction",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "barriers",
+                                "label": "Barriers",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/barriers?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "57108CF7-2154-42FF-A8C7-920950E00785",
+                          "href": "https://content.test.hwapps.net/topics/57108CF7-2154-42FF-A8C7-920950E00785",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/57108CF7-2154-42FF-A8C7-920950E00785/en-us"
+                          },
+                          "type": "hwAction",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "workingWithDr",
+                                "label": "Working with your doctor",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/workingWithDr?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "5DD1CE87-576B-51DE-9552-A3C00DDA1599",
+                          "href": "https://content.test.hwapps.net/topics/5DD1CE87-576B-51DE-9552-A3C00DDA1599",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/5DD1CE87-576B-51DE-9552-A3C00DDA1599/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "Summary",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "risks",
+                                "label": "Risks",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/risks?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "6369FD99-0462-58C9-9C04-7DC4A85D3C82",
+                          "href": "https://content.test.hwapps.net/topics/6369FD99-0462-58C9-9C04-7DC4A85D3C82",
+                          "languages": [
+                            "en-ca",
+                            "en-us",
+                            "es-us"
+                          ],
+                          "localizations": {
+                            "en-ca": "https://content.test.hwapps.net/topics/6369FD99-0462-58C9-9C04-7DC4A85D3C82/en-ca",
+                            "en-us": "https://content.test.hwapps.net/topics/6369FD99-0462-58C9-9C04-7DC4A85D3C82/en-us",
+                            "es-us": "https://content.test.hwapps.net/topics/6369FD99-0462-58C9-9C04-7DC4A85D3C82/es-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "Summary",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "overview",
+                                "label": "Overview",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/overview?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "6671516A-C97E-476D-97C6-F1165EFD5EFC",
+                          "href": "https://content.test.hwapps.net/topics/6671516A-C97E-476D-97C6-F1165EFD5EFC",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/6671516A-C97E-476D-97C6-F1165EFD5EFC/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "treatmentOptions",
+                                "label": "Treatment options",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/treatmentOptions?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "69E3719A-571B-5F8B-AE85-D491B3E5C310",
+                          "href": "https://content.test.hwapps.net/topics/69E3719A-571B-5F8B-AE85-D491B3E5C310",
+                          "languages": [
+                            "en-us",
+                            "es-us",
+                            "en-ca"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/69E3719A-571B-5F8B-AE85-D491B3E5C310/en-us",
+                            "es-us": "https://content.test.hwapps.net/topics/69E3719A-571B-5F8B-AE85-D491B3E5C310/es-us",
+                            "en-ca": "https://content.test.hwapps.net/topics/69E3719A-571B-5F8B-AE85-D491B3E5C310/en-ca"
+                          },
+                          "type": "hwDefinition",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "definition",
+                                "label": "Definition",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/definition?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "85CDED50-A0FD-4D48-A5ED-A77B131FD764",
+                          "href": "https://content.test.hwapps.net/topics/85CDED50-A0FD-4D48-A5ED-A77B131FD764",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/85CDED50-A0FD-4D48-A5ED-A77B131FD764/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "course",
+                                "label": "Course",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/course?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "8B401DBB-9C51-522E-B2F0-D3C11F8D8D1E",
+                          "href": "https://content.test.hwapps.net/topics/8B401DBB-9C51-522E-B2F0-D3C11F8D8D1E",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/8B401DBB-9C51-522E-B2F0-D3C11F8D8D1E/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "Summary",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "effectiveness",
+                                "label": "Effectiveness",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/effectiveness?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "9467D2F3-CE80-426D-BECB-5C47300ED874",
+                          "href": "https://content.test.hwapps.net/topics/9467D2F3-CE80-426D-BECB-5C47300ED874",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/9467D2F3-CE80-426D-BECB-5C47300ED874/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "howAffects",
+                                "label": "How it affects you",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/howAffects?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "9B9AB313-BCA3-4E6A-BDA9-2CF897D48A6E",
+                          "href": "https://content.test.hwapps.net/topics/9B9AB313-BCA3-4E6A-BDA9-2CF897D48A6E",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/9B9AB313-BCA3-4E6A-BDA9-2CF897D48A6E/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "riskFactors",
+                                "label": "Risk factors",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/riskFactors?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "9E4801BA-ACD4-4739-93C4-318389697EB3",
+                          "href": "https://content.test.hwapps.net/topics/9E4801BA-ACD4-4739-93C4-318389697EB3",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/9E4801BA-ACD4-4739-93C4-318389697EB3/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "diagnostics",
+                                "label": "Diagnostics",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/diagnostics?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "A29B0039-D1E2-49D5-99F4-275616C0AD09",
+                          "href": "https://content.test.hwapps.net/topics/A29B0039-D1E2-49D5-99F4-275616C0AD09",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/A29B0039-D1E2-49D5-99F4-275616C0AD09/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "givingSupport",
+                                "label": "Giving support",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/givingSupport?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "B4072D26-3AB6-4C6E-9B7C-F5A464DBDB8B",
+                          "href": "https://content.test.hwapps.net/topics/B4072D26-3AB6-4C6E-9B7C-F5A464DBDB8B",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/B4072D26-3AB6-4C6E-9B7C-F5A464DBDB8B/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "selfCareTx",
+                                "label": "Self-care treatment",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/selfCareTx?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "D724D293-114E-5B6B-B37A-8F8A900CBEBB",
+                          "href": "https://content.test.hwapps.net/topics/D724D293-114E-5B6B-B37A-8F8A900CBEBB",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/D724D293-114E-5B6B-B37A-8F8A900CBEBB/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "Summary",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "whyDone",
+                                "label": "Why it's done",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/whyDone?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "id": "DA008DF3-E300-44F7-A2AA-6852C205E269",
+                          "href": "https://content.test.hwapps.net/topics/DA008DF3-E300-44F7-A2AA-6852C205E269",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/DA008DF3-E300-44F7-A2AA-6852C205E269/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "whatIs",
+                                "label": "What it is",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/whatIs?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "pagination": {
+                        "count": 78,
+                        "top": 27,
+                        "skip": 0
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Can't connect to data source",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "internal server error",
+                      "error_description": "No datasource for request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_topics-concept",
+          "parameters": [
+            {
+              "name": "type",
+              "in": "query",
+              "description": "Specifies to filter the topics manifest to topics with a matching *type*.  \nAn empty value specifies no filtering on *type*.\n",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "filter",
+              "in": "query",
+              "description": "Specifies to filter the topics manifest to topics with a matching Size (DetailLevel) for each *Concept* and *Aspect* combination.\n* `filter=shortest` filters to the shortest topic for each *Concept* and *Aspect* combination.\n* `filter=longest` filters to the longest topic for each *Concept* and *Aspect* combination.\n* `filter=[mainPoint|summary|fullDetail]` filters to topics with a matching DetailLevel for each *Concept* and *Aspect* combination.\nAn empty value specifies no filtering on Size.\n",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "showAllSets",
+              "in": "query",
+              "description": "Used in conjunction with *filter*, this flag indicates whether to return all matching results when there are topics of varying subjects for the same *Concept* and *Aspect* combination.\n* `showAllSets=false` (Default) filters results to a single topic for each *Concept* and *Aspect* combination.\n* `showAllSets=true` allows for the return of multiple topics for each *Concept* and *Aspect* combination.\n",
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "top",
+              "in": "query",
+              "description": "Specifies the maximum number of records to be returned from the service. In conjunction with *skip*, this is used for pagination of the results.  \nIf not specified, a default value will be used.  Max value is **5,000**.\n",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "skip",
+              "in": "query",
+              "description": "Specifies the index of the first record to be returned. In conjunction with *top*, this is used for pagination of the results.  \nIf not specified, a default value of **0** will be used.\n",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ]
+        },
+        "parameters": [
+          {
+            "name": "concept",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise Concept"
+          }
+        ]
+      },
+      "/topics/{concept}/{aspect}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/topics/HWCV_20425/signsAndSymptoms?filter=shortest"
+                      },
+                      "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.items.json",
+                      "items": [
+                        {
+                          "id": "2BF5ED31-2021-49E8-8EA5-937E9621D388",
+                          "href": "https://content.test.hwapps.net/topics/2BF5ED31-2021-49E8-8EA5-937E9621D388",
+                          "languages": [
+                            "en-us"
+                          ],
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/2BF5ED31-2021-49E8-8EA5-937E9621D388/en-us"
+                          },
+                          "type": "hwInfoConcept",
+                          "detailLevel": "MainPoint",
+                          "taxonomy": [
+                            {
+                              "aspect": {
+                                "id": "signsAndSymptoms",
+                                "label": "Signs and symptoms",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425/signsAndSymptoms?filter=shortest"
+                              },
+                              "concept": {
+                                "id": "HWCV_20425",
+                                "label": "Asthma",
+                                "href": "https://content.test.hwapps.net/topics/HWCV_20425?filter=shortest"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "pagination": {
+                        "count": 3,
+                        "top": 1,
+                        "skip": 0
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Can't connect to data source",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "internal server error",
+                      "error_description": "No datasource for request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_topics-concept-aspect",
+          "parameters": [
+            {
+              "name": "type",
+              "in": "query",
+              "description": "Specifies to filter the topics manifest to topics with a matching *type*.  \nAn empty value specifies no filtering on *type*.\n",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "filter",
+              "in": "query",
+              "description": "Specifies to filter the topics manifest to topics with a matching Size (DetailLevel) for each *Concept* and *Aspect* combination.\n* `filter=shortest` filters to the shortest topic for each *Concept* and *Aspect* combination.\n* `filter=longest` filters to the longest topic for each *Concept* and *Aspect* combination.\n* `filter=[mainPoint|summary|fullDetail]` filters to topics with a matching DetailLevel for each *Concept* and *Aspect* combination.\nAn empty value specifies no filtering on Size.\n",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "showAllSets",
+              "in": "query",
+              "description": "Used in conjunction with *filter*, this flag indicates whether to return all matching results when there are topics of varying subjects for the same *Concept* and *Aspect* combination.\n* `showAllSets=false` (Default) filters results to a single topic for each *Concept* and *Aspect* combination.\n* `showAllSets=true` allows for the return of multiple topics for each *Concept* and *Aspect* combination.\n",
+              "schema": {
+                "type": "boolean"
+              }
+            },
+            {
+              "name": "top",
+              "in": "query",
+              "description": "Specifies the maximum number of records to be returned from the service. In conjunction with *skip*, this is used for pagination of the results.  \nIf not specified, a default value will be used.  Max value is **5,000**.\n",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "name": "skip",
+              "in": "query",
+              "description": "Specifies the index of the first record to be returned. In conjunction with *top*, this is used for pagination of the results.  \nIf not specified, a default value of **0** will be used.\n",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ]
+        },
+        "parameters": [
+          {
+            "name": "concept",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise Concept"
+          },
+          {
+            "name": "aspect",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise Aspect"
+          }
+        ]
+      },
+      "/topics/{concept}/{aspect}/{lang}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "example": {
+                        "status": 200,
+                        "versioning": {
+                          "X-HW-Version": "1"
+                        },
+                        "links": {
+                          "self": "https://content.test.hwapps.net/topics/HWCV_20425/signsAndSymptoms/en-us?filter=shortest",
+                          "localizations": {
+                            "en-us": "https://content.test.hwapps.net/topics/2BF5ED31-2021-49E8-8EA5-937E9621D388/en-us"
+                          },
+                          "metadata": {
+                            "en-us": "https://content.test.hwapps.net/metadata/2BF5ED31-2021-49E8-8EA5-937E9621D388/en-us"
+                          }
+                        },
+                        "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.item.json",
+                        "data": {
+                          "topics": [
+                            {
+                              "id": "2BF5ED31-2021-49E8-8EA5-937E9621D388",
+                              "version": "1",
+                              "hash": "1",
+                              "certifiedDate": "2017-05-12",
+                              "lang": "en-us",
+                              "type": "hwInfoConcept",
+                              "title": {
+                                "consumer": "What are the symptoms of asthma?"
+                              },
+                              "legal": {
+                                "logoUrl": "https://cdn.healthwise.net/common/images/hwlogo/hwlogo.png",
+                                "copyrightText": "� 1995-2017 Healthwise, Incorporated. Healthwise, Healthwise for every health decision, and the Healthwise logo are trademarks of Healthwise, Incorporated.",
+                                "disclaimerText": "This information does not replace the advice of a doctor. Healthwise, Incorporated, disclaims any warranty or liability for your use of this information.",
+                                "termsOfUseUrl": "https://www.healthwise.org/specialpages/legal/terms.aspx",
+                                "privacyPolicyUrl": "https://www.healthwise.org/specialpages/legal/privacy.aspx",
+                                "moreInformationUrl": "https://www.healthwise.org",
+                                "toLearnMoreHtml": "To learn more about Healthwise, visit <a href=\"https://www.healthwise.org\">Healthwise.org</a>.",
+                                "yourUseOfThisInformationHtml": "Your use of this information means that you agree to the <a href=\"https://www.healthwise.org/specialpages/legal/terms.aspx\">Terms of Use</a> and <a href=\"https://www.healthwise.org/specialpages/legal/privacy.aspx\">Privacy Policy</a>.",
+                                "html": "<div class=\"HwLegal\"><div class=\"HwLogo\"><img width=\"112\" height=\"46\" src=\"https://cdn.healthwise.net/common/images/hwlogo/hwlogo.png\" alt=\"\"/></div><div class=\"HwDisclaimer\"><p>This information does not replace the advice of a doctor. Healthwise, Incorporated, disclaims any warranty or liability for your use of this information. Your use of this information means that you agree to the <a href=\"https://www.healthwise.org/specialpages/legal/terms.aspx\">Terms of Use</a> and <a href=\"https://www.healthwise.org/specialpages/legal/privacy.aspx\">Privacy Policy</a>.</p></div><div class=\"HwCopyright\"><p class=\"HwCopyrightLink\">To learn more about Healthwise, visit <a href=\"https://www.healthwise.org\">Healthwise.org</a>.</p><p>� 1995-2017 Healthwise, Incorporated. Healthwise, Healthwise for every health decision, and the Healthwise logo are trademarks of Healthwise, Incorporated.</p></div></div>"
+                              },
+                              "navigable": false,
+                              "credits": {
+                                "author": {
+                                  "name": "Healthwise Staff"
+                                },
+                                "primaryReviewers": [
+                                  {
+                                    "name": "Kathleen Romito MD - Family Medicine, E. Gregory Thompson MD - Internal Medicine"
+                                  }
+                                ],
+                                "secondaryReviewers": [
+                                  {
+                                    "name": "Rohit K Katial MD - Allergy and Immunology"
+                                  }
+                                ]
+                              },
+                              "html": "<div class=\"HwStructuredWrapper\"><div class=\"HwStructuredContent HwInfoConcept\"> <h3 data-element=\"title\" role=\"heading\" aria-level=\"3\">What are the symptoms of asthma?</h3> <div class=\"HwSection\"> <p> When you have asthma, you may wheeze or cough a lot. You may also feel tightness in your chest or feel short of breath. </p> </div> </div></div>",
+                              "taxonomy": [
+                                {
+                                  "aspect": {
+                                    "id": "signsAndSymptoms",
+                                    "label": "Signs and symptoms",
+                                    "href": null
+                                  },
+                                  "concept": {
+                                    "id": "HWCV_20425",
+                                    "label": "Asthma",
+                                    "href": null
+                                  }
+                                }
+                              ],
+                              "aspect": "Signs and symptoms [signsAndSymptoms]",
+                              "detailLevel": "MainPoint",
+                              "associatedTopics": {
+                                "alternateDetailLevels": [
+                                  {
+                                    "href": "https://content.test.hwapps.net/topics/C4793503-2CB5-476F-A321-33E46942FF48/en-us",
+                                    "id": "C4793503-2CB5-476F-A321-33E46942FF48",
+                                    "lang": "en-us",
+                                    "type": "hwInfoConcept",
+                                    "title": {
+                                      "consumer": "What are the symptoms of asthma?"
+                                    },
+                                    "detailLevel": "Summary"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "Unauthorized. Likely due to malformed or invalid token.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Forbidden. No access to requested content.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Access token required"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "The topic doesn't exist.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 404,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/topics/HWCV_20425/signsAndSymptoms/en-us?filter=FullDetail"
+                      },
+                      "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.error.json",
+                      "error": {
+                        "message": "Document Not Found for concept:'HWCV_20425', aspect:'signsAndSymptoms', language:'en-us', filter:'FullDetail'"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "500": {
+              "description": "Can't connect to data source",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "internal server error",
+                      "error_description": "No datasource for request"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_topics-concept-aspect-lang",
+          "parameters": [
+            {
+              "name": "type",
+              "in": "query",
+              "description": "Specifies to filter the topics manifest to topics with a matching *type*.  \nAn empty value specifies no filtering on *type*.\n",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "filter",
+              "in": "query",
+              "description": "Specifies to filter the topics manifest to topics with a matching Size (DetailLevel) for each *Concept* and *Aspect* combination.\n* `filter=shortest` filters to the shortest topic for each *Concept* and *Aspect* combination.\n* `filter=longest` filters to the longest topic for each *Concept* and *Aspect* combination.\n* `filter=[mainPoint|summary|fullDetail]` filters to topics with a matching DetailLevel for each *Concept* and *Aspect* combination.\nAn empty value specifies no filtering on Size.\n",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "parameters": [
+          {
+            "name": "concept",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise Concept"
+          },
+          {
+            "name": "aspect",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise Aspect"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Localization"
+          }
+        ]
+      },
+      "/resources/{content_version}/{lang}/{resource_id}": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/pdf": {
+                  "schema": {
+                    "example": "the raw bytes for the binary resource."
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "Bad Request",
+                      "error_description": "Bad request"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "Resource not found",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "not found",
+                      "error_description": "Resource was not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_resources-content_version-lang-resource_id"
+        },
+        "parameters": [
+          {
+            "name": "content_version",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Healthwise version"
+          },
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Localization"
+          },
+          {
+            "name": "resource_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier for a resource."
+          }
+        ]
+      },
+      "/oembed": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "version": "1.0",
+                      "type": "video",
+                      "width": 425,
+                      "height": 344,
+                      "title": "Content Title",
+                      "html": "<div>content here</div>"
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "Origin not valid",
+                      "error_description": "Origin not valid"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Origin not valid",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "Origin not valid",
+                      "error_description": "Origin not valid"
+                    }
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "The topic or ecode doesn't exist.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "Not Found",
+                      "error_description": "Not Found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_oembed",
+          "parameters": [
+            {
+              "name": "url",
+              "in": "query",
+              "required": true,
+              "description": "a path to a topic",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "ecode",
+              "in": "query",
+              "required": true,
+              "description": "an encoded identifier for the requesting entity",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "title",
+              "in": "query",
+              "description": "include the title in the html or not. Defaults to true.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "maxwidth",
+              "in": "query",
+              "description": "Number specifying the width for a video or image.",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "maxheight",
+              "in": "query",
+              "description": "Number specifying the height which may be applied for some content types.",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ]
+        }
+      },
+      "/origins": {
+        "get": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/origins"
+                      },
+                      "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.item.json",
+                      "data": {
+                        "ecode": "YW4gZW5jb2RlZCBpZGVudGlmaWVy",
+                        "origins": [
+                          "http://hostname:5000",
+                          "http://hostname.org",
+                          "http://hostname.com"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "Bad Request",
+                      "error_description": "Bad Request"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Origin not valid",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Origin not valid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "GET_origins"
+        },
+        "put": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/origins?origin=http://hostname.com"
+                      },
+                      "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.item.json",
+                      "data": {
+                        "ecode": "YW4gZW5jb2RlZCBpZGVudGlmaWVy",
+                        "origins": [
+                          "http://hostname:5000",
+                          "http://hostname.org",
+                          "http://hostname.com"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "Bad Request",
+                      "error_description": "Bad Request"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Origin not valid",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Origin not valid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "PUT_origins"
+        },
+        "delete": {
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "status": 200,
+                      "versioning": {
+                        "X-HW-Version": "1"
+                      },
+                      "links": {
+                        "self": "https://content.test.hwapps.net/origins?origin=http://hostname.com"
+                      },
+                      "schema": "https://content.test.hwapps.net/spec/schema.healthwise.api.item.json",
+                      "data": {
+                        "ecode": "YW4gZW5jb2RlZCBpZGVudGlmaWVy",
+                        "origins": [
+                          "http://hostname:5000",
+                          "http://hostname.org",
+                          "http://hostname.com"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "Bad Request",
+                      "error_description": "Bad Request"
+                    }
+                  }
+                }
+              }
+            },
+            "403": {
+              "description": "Origin not valid",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "example": {
+                      "error": "invalid_token",
+                      "error_description": "Origin not valid"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "DELETE_origins"
+        },
+        "parameters": [
+          {
+            "name": "origin",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "an origin to add or remove"
+          }
+        ]
+      }
+    },
+    "components": {
+      "schemas": {},
+      "responses": {},
+      "parameters": {},
+      "examples": {},
+      "requestBodies": {},
+      "headers": {},
+      "securitySchemes": {
+        "oauth_2_0": {
+          "description": "Uses ClientId and ClientSecret to acquire a OAuth2 Bearer Token with required scopes from Healthwise authorization service and use the bearer token to access the resources.\n",
+          "type": "oauth2",
+          "flows": {
+            "clientCredentials": {
+              "tokenUrl": "https://auth.test.hwapps.net/oauth2/token",
+              "scopes": {
+                "content.api": ""
+              }
+            }
+          }
+        },
+        "secure_With_Bearer_Token": {
+          "description": "Uses a pre-acquired OAuth2 Bearer token in the request header to access resources.\n",
+          "type": "apiKey",
+          "in": "header",
+          "name": "Authorization"
+        }
+      },
+      "links": {},
+      "callbacks": {}
+    }
+  }
